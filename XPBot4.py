@@ -21,7 +21,6 @@ def read_file_as_str(file_path):
     return all_the_text
 
 TOKEN = read_file_as_str('TOKEN')
-print (TOKEN)
 updater = Updater(token=TOKEN, use_context=True)
 dispatcher = updater.dispatcher
 start_handler = CommandHandler('start', start)
