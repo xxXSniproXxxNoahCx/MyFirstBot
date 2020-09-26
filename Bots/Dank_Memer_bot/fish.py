@@ -8,6 +8,6 @@ def fish(update, context):
     update.message.reply_text(msg3)
 
 def add_handler(dp:Dispatcher):
-    fish_handler = CommandHandler('fish', fish)
+    fish_handler = CommandHandler('DFish', fish)
     dp.add_handler(fish_handler)
 
