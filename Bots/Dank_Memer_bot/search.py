@@ -8,7 +8,7 @@ def searching(update, context):
     update.message.reply_text(msg4)
 
 def add_handler(dp:Dispatcher):
-    search_handler = CommandHandler('search', searching)
+    search_handler = CommandHandler('DSearch', searching)
     dp.add_handler(search_handler)
 
 
