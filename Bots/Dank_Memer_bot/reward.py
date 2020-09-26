@@ -8,6 +8,6 @@ def rewarded(update, context):
     update.message.reply_text(msg)
 
 def add_handler(dp:Dispatcher):
-    reward_handler = CommandHandler('reward', rewarded)
+    reward_handler = CommandHandler('DReward', rewarded)
     dp.add_handler(reward_handler)
 
