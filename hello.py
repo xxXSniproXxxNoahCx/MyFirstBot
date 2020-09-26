@@ -1,7 +1,3 @@
-Fish = ["LOL You got nothing, git gud.", "You brought one common fish and gained 5 xp!", "You brought back two common fishes and gained 10 xp!", "You brought back four common fishes and gained 20 xp!", "You brought back one RARE fish and gained 100 xp! Whoo Hoo!", "You fished up a bank note and gained 700 xp. What?"]
-Search = ["Air", "Bank", "Street", "School", "Hospital", "Attic", "Haunted House", "Tree", "L - Park"]
-Hunt = ["LOL you suck, you found nothing to hunt", "You brought back a skunk and gained 10 xp!", "You brought back a rabbit and gained 15 xp!", "You brought back a duck and gained 25 xp!", "You brought back a boar and gained 70 xp!", "Holy Moly! You brought back a DRAGON and agained 400 xp! How'd you even manage that?"]
-Beg = ["You got shot by a robber for being a spectator. Rip", "Snipro Bot Donated 50 xp to you!"]
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import MessageHandler, Filters
