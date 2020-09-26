@@ -8,7 +8,7 @@ def begging(update, context):
     update.message.reply_text(msg6)
 
 def add_handler(dp:Dispatcher):
-    beg_handler = CommandHandler('beg',begging)
+    beg_handler = CommandHandler('DBeg',begging)
     dp.add_handler(beg_handler)
 
 
