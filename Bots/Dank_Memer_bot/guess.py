@@ -3,15 +3,23 @@ from telegram.ext import Dispatcher, CommandHandler, ConversationHandler
 
 n = random.randint(1,99)
 tries = 0
+def help():
+  return """ 
+    猜一个0-100之间的数字。You guessed a number from 0 - 100.
+/DGuess 查看现在的状态和获取帮助。Check your current status and get help.
+/DGuess number 输入number猜数字，看谁用的次数最少。Enter number and see who uses it the least often. """
 def guessing(update, context):
   global n
   global tries
   user = update.message.from_user
   msg8 = ""
   gn = "猜一个0-100之间的数字。\nGuess a number from 0 - 100.\n\nLeaderboards: %s - %s\n "%(user.username,tries)
+  msg8 += gn
+  if len(context.args) == 0 :
+    update.message.reply_text(help()) 
+    return
   b = context.args[0]
   a = int(b)
-  msg8 += gn
   if a == n :
     tries = tries + 1
     msg8 += "Ayyy You guessed it! You guessed it in %s tries. 天呐你竟然猜到了 概率是 %%1 呀！ 500 XP 你值得拥有。竟然 %s 次就猜到了."%(tries,tries) 
