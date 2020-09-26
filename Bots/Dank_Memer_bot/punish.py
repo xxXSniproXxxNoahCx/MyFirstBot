@@ -8,5 +8,5 @@ def punish(update, context):
     update.message.reply_text(msg2)
 
 def add_handler(dp:Dispatcher):
-    punishment_handler = CommandHandler('punish', punish)
+    punishment_handler = CommandHandler('DPunish', punish)
     dp.add_handler(punishment_handler)
