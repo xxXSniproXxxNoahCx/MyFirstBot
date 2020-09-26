@@ -8,7 +8,7 @@ def hunting(update, context):
     update.message.reply_text(msg5)
 
 def add_handler(dp:Dispatcher):
-    hunt_handler = CommandHandler('hunt', hunting)
+    hunt_handler = CommandHandler('DHunt', hunting)
     dp.add_handler(hunt_handler)
 
 
