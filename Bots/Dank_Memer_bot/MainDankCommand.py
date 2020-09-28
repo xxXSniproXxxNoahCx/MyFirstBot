@@ -14,7 +14,9 @@ import solve
 import bj
 
 def start(update, context):
-    update.message.reply_text("""Sup! My name is ᴅᴀɴᴋ ᴍᴇᴍᴇʀ ɪɪ. Coded by O Great Noah.
+    update.message.reply_text("""
+
+    Sup! My name is ᴅᴀɴᴋ ᴍᴇᴍᴇʀ ɪɪ. Coded by O Great Noah.
     ᴅᴀɴᴋ ᴍᴇᴍᴇʀ ɪɪ provides a lot of fun features. You can do many things to try to get much XP as you want!
     
     You can also mess around with /DReward and /DPunish!
