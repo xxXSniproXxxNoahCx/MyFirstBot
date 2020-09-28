@@ -43,18 +43,23 @@ def blackjacking(update, context):
             sc += rc
         if sc < osc or sc > 21:
             msg88888 += "You lost the bet. Your number is %s, Opponent number is %s. You lost the XP you betted."%(sc,osc)
+            sc = 0
         elif sc > osc and sc <= 21:
             msg88888 += "\n\nYou won the blackjack! Your number is %s, Opponent number is %s. You betted %s XP (I don't care if its not right), so your reward is %s XP!"%(sc,osc,ri,ri*2)
+            sc = 0
         elif sc == osc :
             msg88888 += "You didn't lose nor win anything. L?"
+            sc = 0
     elif bjc == save:
         if sc < osc or sc > 21:
             msg88888 += "You lost the bet. Your number is %s, Opponent number is %s. You lost the XP you betted."%(sc,osc)
-        elif sc > osc and sc >= 21:
+            sc = 0
+        elif sc > osc and sc <= 21:
             msg88888 += "\n\nYou won the blackjack! Your number is %s, Opponent number is %s. You betted %s XP (I don't care if its not right), so your reward is %s XP!"%(sc,osc,ri,ri*2)
+            sc = 0
         elif sc == osc :
             msg88888 += "You didn't lose nor win anything. L?"
-
+            sc = 0
     update.message.reply_text(msg88888)
  
 
