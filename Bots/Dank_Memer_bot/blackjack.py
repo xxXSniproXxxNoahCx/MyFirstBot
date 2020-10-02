@@ -1,10 +1,6 @@
 import random
 from telegram.ext import Dispatcher,CommandHandler,ConversationHandler
 
-sc = int(random.randint(1,20))
-
-msg99999 = ("Blackjack\n\nFirst to 21. You start on %s. If you wish to hit, type '/dblackjack h'. If you wish to save, type '/dblackjack s'."%(sc))
-msg88888 = ""
 def bjhelp():
   return """ 
     二十一点
@@ -17,14 +13,14 @@ def bjhelp():
 If you wish to hit, type '/dblackjack h'. If you wish to save, type '/dblackjack s'.
 To start, type '/dstartbj'.
     """
-
+sc = int(random.randint(1,20))
+msg88888 = ("Blackjack\n\nFirst to 21. You start on %s. If you wish to hit, type '/dblackjack h'. If you wish to save, type '/dblackjack s'. \n\n"%(sc))
 def start(update, context):
-    global msg99999
-    update.message.reply_text(msg99999)
-def blackjacking(update, context):
-    global msg99999
     global msg88888
+    update.message.reply_text(msg88888)
+def blackjacking(update, context):
     global sc
+    global msg88888
     ri = random.randint(500,1500)
     rc = int(random.randint(1,11))
     osc = int(random.randint(1,20))
@@ -36,6 +32,7 @@ def blackjacking(update, context):
         update.message.reply_text(bjhelp())
         return 
     bjc = context.args[0]
+    print("\n\nHere! %s, %s\n\n"%(sc,osc))
     if bjc == hit:
         if rc == 11 and sc + rc > 21:
             sc += 1
@@ -43,25 +40,20 @@ def blackjacking(update, context):
             sc += rc
         if sc < osc or sc > 21:
             msg88888 += "You lost the bet. Your number is %s, Opponent number is %s. You lost the XP you betted."%(sc,osc)
-            sc = 0
         elif sc > osc and sc <= 21:
-            msg88888 += "\n\nYou won the blackjack! Your number is %s, Opponent number is %s. You betted %s XP (I don't care if its not right), so your reward is %s XP!"%(sc,osc,ri,ri*2)
-            sc = 0
-        elif sc == osc :
+            msg88888 += "You won the blackjack! Your number is %s, Opponent number is %s. You betted %s XP (I don't care if its not right), so your reward is %s XP!"%(sc,osc,ri,ri*2)
+        elif sc == osc:
             msg88888 += "You didn't lose nor win anything. L?"
-            sc = 0
+        sc = int(random.randint(1,20))
     elif bjc == save:
         if sc < osc or sc > 21:
             msg88888 += "You lost the bet. Your number is %s, Opponent number is %s. You lost the XP you betted."%(sc,osc)
-            sc = 0
         elif sc > osc and sc <= 21:
-            msg88888 += "\n\nYou won the blackjack! Your number is %s, Opponent number is %s. You betted %s XP (I don't care if its not right), so your reward is %s XP!"%(sc,osc,ri,ri*2)
-            sc = 0
-        elif sc == osc :
+            msg88888 += "You won the blackjack! Your number is %s, Opponent number is %s. You betted %s XP (I don't care if its not right), so your reward is %s XP!"%(sc,osc,ri,ri*2)
+        elif sc == osc:
             msg88888 += "You didn't lose nor win anything. L?"
-            sc = 0
+        sc = int(random.randint(1,20))
     update.message.reply_text(msg88888)
- 
 
 def add_handler(dp:Dispatcher):
     blackjack_handler = CommandHandler('DBlackjack', blackjacking)
